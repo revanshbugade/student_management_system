@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{% block title%}
+Update
+{% endblock%}
+{% block content%}
+    {% for message in messages %}
+    <span {% if message.tags %} class="{{ message.tags }}"{% endif %}><div class="alert alert-success text-center" role="alert">
+        <h3>{{ message }}</h3>
+</div>
+    {% endfor %}
+
+
+<div class="card mx-auto" style=" margin-top:20px;">
+      <article class="card-body  bg-light">
+		<header class="mb-4"><h4 class="card-title"><i class="bi bi-pencil-square"></i>   Update Student</h4></header>
+		  <hr>
+		<form  method="post">
+			{% csrf_token%}
+<label>First name</label>
+{{form.first_name}}
+<label>Last name</label>
+{{form.last_name}}
+<label>Email-adress</label>
+{{form.email}}
+<label>Phone</label>
+{{form.phone}}
+<label>Select Course</label>
+ {{form.course}}
+<label>Course Timing</label>
+{{form.course_timing}}
+
+<div class="text-center mt-4">
+<button type="submit" class="btn btn-primary btn-block"> Add Student  </button>
+ </div> <!-- form-group// -->
+
+
+</form>
+</article><!-- card-body.// -->
+ </div> <!-- card .// -->
+
+{% endblock%}
